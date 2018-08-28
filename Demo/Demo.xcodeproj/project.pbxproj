@@ -1,0 +1,387 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8491BA0321211AA700FDD228 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491BA0221211AA700FDD228 /* AppDelegate.swift */; };
+		8491BA0521211AA700FDD228 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8491BA0421211AA700FDD228 /* ViewController.swift */; };
+		8491BA0821211AA700FDD228 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8491BA0621211AA700FDD228 /* Main.storyboard */; };
+		8491BA0A21211AA800FDD228 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8491BA0921211AA800FDD228 /* Assets.xcassets */; };
+		8491BA0D21211AA800FDD228 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8491BA0B21211AA800FDD228 /* LaunchScreen.storyboard */; };
+		8491BA1C21211B9800FDD228 /* CLMWalletKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8491BA1B21211B9800FDD228 /* CLMWalletKit.framework */; };
+		8491BA1F21211C0900FDD228 /* CryptoEthereumSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8491BA1D21211C0900FDD228 /* CryptoEthereumSwift.framework */; };
+		8491BA2021211C0900FDD228 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8491BA1E21211C0900FDD228 /* CryptoSwift.framework */; };
+		8491BA2121211F3F00FDD228 /* CryptoEthereumSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8491BA1D21211C0900FDD228 /* CryptoEthereumSwift.framework */; };
+		8491BA2221211F3F00FDD228 /* CryptoEthereumSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8491BA1D21211C0900FDD228 /* CryptoEthereumSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8491BA2321211F3F00FDD228 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8491BA1E21211C0900FDD228 /* CryptoSwift.framework */; };
+		8491BA2421211F3F00FDD228 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8491BA1E21211C0900FDD228 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8491BA2521211F3F00FDD228 /* CLMWalletKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8491BA1B21211B9800FDD228 /* CLMWalletKit.framework */; };
+		8491BA2621211F3F00FDD228 /* CLMWalletKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8491BA1B21211B9800FDD228 /* CLMWalletKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8491BA2721211F3F00FDD228 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8491BA2221211F3F00FDD228 /* CryptoEthereumSwift.framework in Embed Frameworks */,
+				8491BA2421211F3F00FDD228 /* CryptoSwift.framework in Embed Frameworks */,
+				8491BA2621211F3F00FDD228 /* CLMWalletKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8491B9FF21211AA700FDD228 /* Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8491BA0221211AA700FDD228 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8491BA0421211AA700FDD228 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8491BA0721211AA700FDD228 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8491BA0921211AA800FDD228 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8491BA0C21211AA800FDD228 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8491BA0E21211AA800FDD228 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8491BA1B21211B9800FDD228 /* CLMWalletKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CLMWalletKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8491BA1D21211C0900FDD228 /* CryptoEthereumSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoEthereumSwift.framework; path = ../CLMWalletKit/libs/CryptoEthereumSwift.framework; sourceTree = "<group>"; };
+		8491BA1E21211C0900FDD228 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = ../CLMWalletKit/libs/CryptoSwift.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8491B9FC21211AA700FDD228 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8491BA1F21211C0900FDD228 /* CryptoEthereumSwift.framework in Frameworks */,
+				8491BA2021211C0900FDD228 /* CryptoSwift.framework in Frameworks */,
+				8491BA2121211F3F00FDD228 /* CryptoEthereumSwift.framework in Frameworks */,
+				8491BA2321211F3F00FDD228 /* CryptoSwift.framework in Frameworks */,
+				8491BA1C21211B9800FDD228 /* CLMWalletKit.framework in Frameworks */,
+				8491BA2521211F3F00FDD228 /* CLMWalletKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8491B9F621211AA700FDD228 = {
+			isa = PBXGroup;
+			children = (
+				8491BA0121211AA700FDD228 /* Demo */,
+				8491BA0021211AA700FDD228 /* Products */,
+				8491BA1A21211B9800FDD228 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8491BA0021211AA700FDD228 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8491B9FF21211AA700FDD228 /* Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8491BA0121211AA700FDD228 /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				8491BA0221211AA700FDD228 /* AppDelegate.swift */,
+				8491BA0421211AA700FDD228 /* ViewController.swift */,
+				8491BA0621211AA700FDD228 /* Main.storyboard */,
+				8491BA0921211AA800FDD228 /* Assets.xcassets */,
+				8491BA0B21211AA800FDD228 /* LaunchScreen.storyboard */,
+				8491BA0E21211AA800FDD228 /* Info.plist */,
+			);
+			path = Demo;
+			sourceTree = "<group>";
+		};
+		8491BA1A21211B9800FDD228 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8491BA1D21211C0900FDD228 /* CryptoEthereumSwift.framework */,
+				8491BA1E21211C0900FDD228 /* CryptoSwift.framework */,
+				8491BA1B21211B9800FDD228 /* CLMWalletKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8491B9FE21211AA700FDD228 /* Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8491BA1121211AA800FDD228 /* Build configuration list for PBXNativeTarget "Demo" */;
+			buildPhases = (
+				8491B9FB21211AA700FDD228 /* Sources */,
+				8491B9FC21211AA700FDD228 /* Frameworks */,
+				8491B9FD21211AA700FDD228 /* Resources */,
+				8491BA2721211F3F00FDD228 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Demo;
+			productName = Demo;
+			productReference = 8491B9FF21211AA700FDD228 /* Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8491B9F721211AA700FDD228 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = admin;
+				TargetAttributes = {
+					8491B9FE21211AA700FDD228 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 8491B9FA21211AA700FDD228 /* Build configuration list for PBXProject "Demo" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8491B9F621211AA700FDD228;
+			productRefGroup = 8491BA0021211AA700FDD228 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8491B9FE21211AA700FDD228 /* Demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8491B9FD21211AA700FDD228 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8491BA0D21211AA800FDD228 /* LaunchScreen.storyboard in Resources */,
+				8491BA0A21211AA800FDD228 /* Assets.xcassets in Resources */,
+				8491BA0821211AA700FDD228 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8491B9FB21211AA700FDD228 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8491BA0521211AA700FDD228 /* ViewController.swift in Sources */,
+				8491BA0321211AA700FDD228 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8491BA0621211AA700FDD228 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8491BA0721211AA700FDD228 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8491BA0B21211AA800FDD228 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8491BA0C21211AA800FDD228 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8491BA0F21211AA800FDD228 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8491BA1021211AA800FDD228 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8491BA1221211AA800FDD228 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = URDBT3733J;
+				FRAMEWORK_SEARCH_PATHS = /Users/admin/Desktop/CLMWalletDevlop/CLMWalletKit/libs;
+				INFOPLIST_FILE = Demo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vivgoo.Demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8491BA1321211AA800FDD228 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = URDBT3733J;
+				FRAMEWORK_SEARCH_PATHS = /Users/admin/Desktop/CLMWalletDevlop/CLMWalletKit/libs;
+				INFOPLIST_FILE = Demo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.vivgoo.Demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8491B9FA21211AA700FDD228 /* Build configuration list for PBXProject "Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8491BA0F21211AA800FDD228 /* Debug */,
+				8491BA1021211AA800FDD228 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8491BA1121211AA800FDD228 /* Build configuration list for PBXNativeTarget "Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8491BA1221211AA800FDD228 /* Debug */,
+				8491BA1321211AA800FDD228 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8491B9F721211AA700FDD228 /* Project object */;
+}
