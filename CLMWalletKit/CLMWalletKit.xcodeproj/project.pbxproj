@@ -29,7 +29,6 @@
 		84542B6F211DB71800986EC3 /* SMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84542B2C211DB71800986EC3 /* SMP.swift */; };
 		84542B70211DB71800986EC3 /* Encryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 84542B2D211DB71800986EC3 /* Encryption.m */; };
 		84542B71211DB71800986EC3 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84542B2E211DB71800986EC3 /* Converter.swift */; };
-		84542B73211DB71800986EC3 /* CryptHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84542B30211DB71800986EC3 /* CryptHelper.swift */; };
 		84542B86211DB71800986EC3 /* CLWalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84542B49211DB71800986EC3 /* CLWalletManager.swift */; };
 		84542B87211DB71800986EC3 /* CLWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84542B4A211DB71800986EC3 /* CLWallet.swift */; };
 		84542B88211DB71800986EC3 /* CLWalletType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84542B4B211DB71800986EC3 /* CLWalletType.swift */; };
@@ -78,7 +77,6 @@
 		84542B2C211DB71800986EC3 /* SMP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMP.swift; sourceTree = "<group>"; };
 		84542B2D211DB71800986EC3 /* Encryption.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Encryption.m; sourceTree = "<group>"; };
 		84542B2E211DB71800986EC3 /* Converter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
-		84542B30211DB71800986EC3 /* CryptHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptHelper.swift; sourceTree = "<group>"; };
 		84542B49211DB71800986EC3 /* CLWalletManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLWalletManager.swift; sourceTree = "<group>"; };
 		84542B4A211DB71800986EC3 /* CLWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLWallet.swift; sourceTree = "<group>"; };
 		84542B4B211DB71800986EC3 /* CLWalletType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CLWalletType.swift; sourceTree = "<group>"; };
@@ -187,7 +185,6 @@
 				84542B2C211DB71800986EC3 /* SMP.swift */,
 				84542B2D211DB71800986EC3 /* Encryption.m */,
 				84542B2E211DB71800986EC3 /* Converter.swift */,
-				84542B30211DB71800986EC3 /* CryptHelper.swift */,
 				8491BA2821211FA600FDD228 /* CryptTools.swift */,
 			);
 			path = Helper;
@@ -344,7 +341,6 @@
 				84542B92211DB71800986EC3 /* String+Extension.swift in Sources */,
 				84542B70211DB71800986EC3 /* Encryption.m in Sources */,
 				84542B6B211DB71800986EC3 /* Crypto.swift in Sources */,
-				84542B73211DB71800986EC3 /* CryptHelper.swift in Sources */,
 				84542B96211DB71800986EC3 /* Mnemonic.swift in Sources */,
 				84542B6C211DB71800986EC3 /* EIP155Signer.swift in Sources */,
 				84542B91211DB71800986EC3 /* SMP+Extensions.swift in Sources */,

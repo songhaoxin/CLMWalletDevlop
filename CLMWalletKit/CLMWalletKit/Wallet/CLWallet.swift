@@ -300,9 +300,5 @@ public class CLWallet: NSObject,NSCoding {
             try? fileManager.createDirectory(atPath: datadir, withIntermediateDirectories: true, attributes: nil)
         }
     }
-
 }
 
-extension Coin {
-    
-}
