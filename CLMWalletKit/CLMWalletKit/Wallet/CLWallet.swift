@@ -18,7 +18,8 @@ public class CLWallet: NSObject,NSCoding {
     public var wallet:Wallet? = nil
     public var hdWallet:HDWallet? = nil
     
-    public var coinList:[Coin] = [Coin]()
+    
+    public var tokenList: [TokenObject] = [TokenObject]()
     
     public var userPassword: String = ""
     public var mnemonicWords: [String] = [""]
@@ -83,7 +84,9 @@ public class CLWallet: NSObject,NSCoding {
     /// 创建一个新的钱包
     public init(dataDir:String!, network: Network!,type:WalletType,name:String! ,password:String!,mnemonic:[String]!) {
         
-        let seed = try! Mnemonic.createSeed(mnemonic: mnemonic, withPassphrase: password)
+        // 为了兼容安卓，去掉密码生成
+        //let seed = try! Mnemonic.createSeed(mnemonic: mnemonic, withPassphrase: password)
+        let seed = try! Mnemonic.createSeed(mnemonic: mnemonic)
         
         
         switch type {
@@ -146,6 +149,17 @@ public class CLWallet: NSObject,NSCoding {
         }
     }
     
+    
+    public func address4HD(token:TokenObject) throws -> String {
+        switch type {
+        case .encryptedKey:
+            throw CLWalletError.invalidType
+        case .hierarchicalDeterministicWallet:
+            return (try self.hdWallet?.generateAddress(token:token))!
+        }
+    }
+    
+
     /// 显示钱包的根地址
     public func address()   -> String {
         switch type {
@@ -214,25 +228,49 @@ public class CLWallet: NSObject,NSCoding {
         }
     }
     
+    
+    public func exportPrivateKey(token:TokenObject) throws -> String {
+        switch type {
+        case .encryptedKey:
+            throw CLWalletError.invalidType
+        case .hierarchicalDeterministicWallet:
+            guard let hdWlt = self.hdWallet else {
+                throw CLWalletError.invalidType
+            }
+            return try hdWlt.generatePrivateKey(coin: token.coin).raw.toHexString()
+        }
+    }
+
+    
     /// 增加一种币种
-    public func addCoin(coin:Coin) {
-        if coinList.count == 0 { coinList = [Coin]() }
-        coinList.append(coin)
-        
+    
+    public func addToken(token:TokenObject) {
+        if tokenList.count == 0 { tokenList = [TokenObject]() }
+        tokenList.append(token)
     }
     
+
+    
     /// 删除一种币种
-    public func removeCoin(coin:Coin) {
-        if coinList.count == 0 {return}
-        if let index = coinList.index(of: coin) {
-            coinList.remove(at: index)
+    
+    public func removeToken(token:TokenObject) {
+        if tokenList.count == 0 {return}
+        
+        var i: Int = 0
+        for t in tokenList {
+            if t.coin == token.coin && t.symbol == token.symbol {
+                tokenList.remove(at: i)
+                break;
+            }
+            i = i + 1
         }
     }
     
     /// 移除所有的币种
-    public func removeAllCoins() {
-        coinList.removeAll()
+    public func removeAllTokens() {
+        tokenList.removeAll()
     }
+ 
     
     /// 删除持久化的文件
     public func deleteFile() {
@@ -280,6 +318,23 @@ public class CLWallet: NSObject,NSCoding {
             privateSignKey = CryptTools.Encode_AES_ECB(strToEncode: self.privateKey, key: pass)
         } else if type == .hierarchicalDeterministicWallet {
             privateSignKey = try self.exportPrivateKey(coin: coin)
+        }
+        
+        ///这个地方需要重构，以适应所有的币种签名（因为不同的币种签名方法是不一样的），目前只考虑以太坊一种情况
+        let signWallet = Wallet(network: network, privateKey: privateSignKey, debugPrints: false)
+        return try signWallet.sign(rawTransaction: rawTransaction)
+    }
+    
+    
+    public func sign(rawTransaction: RawTransaction,token:TokenObject,network:Network) throws -> String {
+        var privateSignKey: String = ""
+        if type == .encryptedKey {
+            //解密password
+            let pass = CryptTools.Decode_AES_ECB(strToDecode: self.userPassword, key: CryptTools.secKey)
+            
+            privateSignKey = CryptTools.Encode_AES_ECB(strToEncode: self.privateKey, key: pass)
+        } else if type == .hierarchicalDeterministicWallet {
+            privateSignKey = try self.exportPrivateKey(token: token)
         }
         
         ///这个地方需要重构，以适应所有的币种签名（因为不同的币种签名方法是不一样的），目前只考虑以太坊一种情况

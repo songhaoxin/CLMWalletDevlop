@@ -21,14 +21,17 @@ public class CLWalletManager: NSObject {
     public var network: Network = CLWalletConfig.network
 
     //钱包列表
-    public var wallets: [CLWallet]! = [CLWallet]()
+    //public var wallets: [CLWallet]! = [CLWallet]()
+    public var wallets: [String:CLWallet] = [String:CLWallet]()
+    
+    private let lock: NSLock = NSLock.init()
     
     // 获取主钱包
     public var mainWallet:CLWallet? {
         get {
             if wallets.count == 0 { return nil }
-            for item in wallets {
-                if item.mainWallet == true { return item }
+            for (_,v) in wallets {
+                if v.mainWallet == true {return v}
             }
             return nil
         }
@@ -56,19 +59,26 @@ public class CLWalletManager: NSObject {
     public func createWallet(name:String!,password:String,language:WordList) throws -> (CLWallet,[String]){
         let mnemonic = Mnemonic.create(strength: .normal, language: language)
         let wallet = CLWallet(dataDir:dataDir ,network: network, type: .hierarchicalDeterministicWallet, name: name, password: password,mnemonic:mnemonic)
-        for item in wallets {
-            if item.id == wallet.id {
+        
+        for (_,v) in wallets {
+            if v.id == wallet.id {
                 throw CLWalletError.invalidAddressRepeat
             }
         }
-        if wallets.count == 0 { wallet.mainWallet = true }
-        self.wallets.append(wallet)
+        if wallets.count == 0 {wallet.mainWallet = true}
+        self.wallets[wallet.id] = wallet
+        
         return (wallet,mnemonic)
     }
     
  
     /// 判断是否已经存在钱包账户
     public func hasWallet() -> Bool {
+        lock.lock()
+        defer {
+            lock.unlock()
+        }
+        
         if self.wallets.count > 0 {
             return true
         }
@@ -93,7 +103,9 @@ public class CLWalletManager: NSObject {
         if exist(wallet: mWallet) {
             throw CLWalletError.invalidAddressRepeat
         }
-        self.wallets.append(mWallet)
+        
+        self.wallets[mWallet.id] = mWallet
+        
         return mWallet
     }
     
@@ -102,7 +114,9 @@ public class CLWalletManager: NSObject {
     public func `import`(privateKey:String!,password:String,name:String!)  -> CLWallet{
         let w = Wallet(network: network, privateKey: privateKey, debugPrints: false)
         let cw = CLWallet(dataDir: dataDir, wallet: w, name: name, password: password)
-        self.wallets.append(cw)
+        
+        //self.wallets.append(cw)
+        self.wallets[cw.id] = cw
         return cw
     }
     
@@ -110,9 +124,7 @@ public class CLWalletManager: NSObject {
     public func remove(clwallet:CLWallet!) {
         clwallet.deleteFile()
         if self.wallets.count == 0 {return}
-        if let index = self.wallets.index(of: clwallet) {
-            self.wallets.remove(at: index)
-        }
+        self.wallets.removeValue(forKey: clwallet.id)
     }
     
     // MARK:- 私有方法
@@ -141,10 +153,11 @@ public class CLWalletManager: NSObject {
                         w?.wallet = Wallet(network: network, privateKey: deprivateKey, debugPrints: false)
                         
                     case .hierarchicalDeterministicWallet:
-                        let seed = try! Mnemonic.createSeed(mnemonic: mn!, withPassphrase: depassword)
+                        //let seed = try! Mnemonic.createSeed(mnemonic: mn!, withPassphrase: depassword)
+                        let seed = try! Mnemonic.createSeed(mnemonic: mn!)
                         w?.hdWallet =  HDWallet(seed: seed, network: network)
                     }
-                    wallets.append(w!)
+                    wallets[w!.id] = w
                 }
             } else {
                 try? fileManager.removeItem(at: url)
@@ -154,8 +167,8 @@ public class CLWalletManager: NSObject {
     
     /// 检查指定的钱包是否已经存在
     private func exist(wallet:CLWallet!) -> Bool {
-        for itm in wallets {
-            if itm.id == wallet.id {
+        for (_,v) in wallets {
+            if v.id == wallet.id {
                 return true
             }
         }

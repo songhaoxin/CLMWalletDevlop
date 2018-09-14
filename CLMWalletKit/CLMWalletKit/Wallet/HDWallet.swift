@@ -14,24 +14,40 @@ public final class HDWallet {
         return try privateKey(change: .external).derived(at: index).privateKey()
     }
     
+    
     public func generatePrivateKey(coin:Coin) throws -> PrivateKey {    //Add by songmj
         return try privateKey(coin: coin).derived(at: 0).privateKey()
+    }
+    
+    public func generatePrivateKey(coin:Coin,index:UInt32) throws -> PrivateKey { //Add by songmj
+        return try privateKey(coin: coin).derived(at: index).privateKey()
     }
    
     
     public func generateAddress(at index: UInt32) throws -> String {
         return try generatePrivateKey(at: index).publicKey.generateAddress()
     }
+    
+    
     public func generateAddress(coin:Coin) throws -> String {   //Add by songmj
         return try generatePrivateKey(coin: coin).publicKey.generateAddress()
     }
+    
+    
+    public func generateAddress(token:TokenObject) throws -> String { //Add by songmj
+        return try generatePrivateKey(coin: token.coin).publicKey.generateAddress()
+    }
+    
+    public func generateBitcoinAddress() throws -> String { //Add by songmj
+        return try generatePrivateKey(coin: .bitcoin).publicKey.generateAddress()
+        //return ""
+    }
+ 
     
     public func mainAddress() throws -> String {
         return self.masterPrivateKey.hdPublicKey().publicKey().generateAddress()
     }
     
-  
-
     
     public func dumpPrivateKey(at index: UInt32) throws -> String {
         return try generatePrivateKey(at: index).raw.toHexString()
